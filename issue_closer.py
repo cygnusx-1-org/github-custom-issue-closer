@@ -57,8 +57,8 @@ def find_issue_numbers(commit_messages, pattern=r'[d]?(?:\s*:)?\s*#(\d+)$'):
     
     for message in commit_messages:
         logger.info(f"Processing commit message: {message}")
-        if(message.lower().startswith("reverts") or message.lower().startswith("revert"))
-            logger.info('Commit is a reverting one, skipping commit')
+        if message.lower().startswith("reverts") or message.lower().startswith("revert")):
+            logger.info(f"Skipping revert commit: {message}")
             continue
         matches = regex.finditer(message)
         for match in matches:
